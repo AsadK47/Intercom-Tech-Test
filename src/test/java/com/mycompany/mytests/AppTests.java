@@ -2,7 +2,6 @@ package com.mycompany.mytests;
 
 import com.mycompany.myapp.App;
 import org.json.JSONException;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.junit.Assert;
@@ -32,6 +31,11 @@ public class AppTests {
     @Test
     public void readJsonAndFilterUsersWithin100Km() throws IOException, ParseException, JSONException {
         Assert.assertEquals(13, app.readJsonAndFilterUsersWithin100Km().size());
+    }
+
+    @Test
+    public void returnFilteredJsonInOrder() {
+
     }
 
     @SuppressWarnings("unchecked")
