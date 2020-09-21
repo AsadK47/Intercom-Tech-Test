@@ -24,7 +24,7 @@ public class AppTests {
         String exampleUserLongitude = "-6.043701";
         String expectedDistanceInKm = "45.0";
 
-        Assert.assertEquals(expectedDistanceInKm, app.calculatingTheDistance(exampleUserLatitude, exampleUserLongitude));
+        Assert.assertEquals(expectedDistanceInKm, app.distanceBetweenOfficeAndUser(exampleUserLatitude, exampleUserLongitude));
     }
 
     @SuppressWarnings("unchecked")

@@ -23,9 +23,9 @@ public class App {
         return (JSONArray) jsonParser.parse(new FileReader(filePath));
     }
 
-    public String calculatingTheDistance(String latitudeOfUser, String longitudeOfUser) {
+    public String distanceBetweenOfficeAndUser(String latitudeOfUser, String longitudeOfUser) {
         double latOfUserAsDouble = convertToDouble(latitudeOfUser);
-        double longOfUserAsDouble = abs(convertToDouble(longitudeOfUser));
+        double longOfUserAsDouble = convertToDouble(longitudeOfUser);
         double differenceInLongs = dublinOfficeLongitude - longOfUserAsDouble;
 
         double centralSubtendedAngle = acos(
