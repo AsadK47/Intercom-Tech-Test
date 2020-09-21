@@ -24,17 +24,13 @@ public class App {
     }
 
     public String calculatingTheDistance(String latitudeOfUser, String longitudeOfUser) {
-        double dublinOfficeLatAsDouble = convertToDouble(dublinOfficeLatitude);
         double latOfUserAsDouble = convertToDouble(latitudeOfUser);
-
-        double dublinOfficeLongAsDouble = abs(convertToDouble(dublinOfficeLongitude));
         double longOfUserAsDouble = abs(convertToDouble(longitudeOfUser));
-
-        double differenceInLongs = dublinOfficeLongAsDouble - longOfUserAsDouble;
+        double differenceInLongs = dublinOfficeLongitude - longOfUserAsDouble;
 
         double centralSubtendedAngle = acos(
-                (sin(dublinOfficeLatAsDouble) * sin(latOfUserAsDouble))
-                + (cos(dublinOfficeLatAsDouble) * cos(latOfUserAsDouble) * cos(differenceInLongs)));
+                (sin(dublinOfficeLatitude) * sin(latOfUserAsDouble))
+                + (cos(dublinOfficeLatitude) * cos(latOfUserAsDouble) * cos(differenceInLongs)));
 
         double distanceInKm = round(radiusOfEarthInKm * toRadians(centralSubtendedAngle));
 
