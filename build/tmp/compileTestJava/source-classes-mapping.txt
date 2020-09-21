@@ -1,2 +1,0 @@
-com/mycompany/mytests/AppTests.java
- com.mycompany.mytests.AppTests
