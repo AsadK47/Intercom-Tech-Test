@@ -1,0 +1,2 @@
+com/mycompany/myapp/App.java
+ com.mycompany.myapp.App
