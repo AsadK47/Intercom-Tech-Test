@@ -1,6 +1,8 @@
 package com.mycompany.mytests;
 
 import com.mycompany.myapp.App;
+import org.json.JSONException;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.junit.Assert;
@@ -25,6 +27,11 @@ public class AppTests {
         String expectedDistanceInKm = "45.0";
 
         Assert.assertEquals(expectedDistanceInKm, app.distanceBetweenOfficeAndUser(exampleUserLatitude, exampleUserLongitude));
+    }
+
+    @Test
+    public void readJsonAndFilterUsersWithin100Km() throws IOException, ParseException, JSONException {
+        Assert.assertEquals(13, app.readJsonAndFilterUsersWithin100Km().size());
     }
 
     @SuppressWarnings("unchecked")
