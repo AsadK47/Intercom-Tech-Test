@@ -76,22 +76,19 @@ public class App {
         }
 
         Collections.sort(jsonValues, new Comparator<org.json.JSONObject>() {
-            private static final String KEY_NAME = "user_id";
-
             @Override
             public int compare(org.json.JSONObject a, org.json.JSONObject b) {
                 String valA = "";
                 String valB = "";
 
                 try {
-                    valA = (String) a.get(KEY_NAME);
-                    valB = (String) b.get(KEY_NAME);
+                    valA = a.getString(user_id);
+                    valB = b.getString(user_id);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-                return valA.compareTo(valB);
-
+                return Integer.parseInt(valA) - Integer.parseInt(valB);
             }
         });
 
