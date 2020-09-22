@@ -16,14 +16,29 @@ public class FilterTests {
 
     @Test
     public void readJsonAndFilterUsersWithin100Km() throws IOException, ParseException, JSONException {
-        Assert.assertEquals(13, filter.usersWithin100Km().size());
+        int numOfUsersWithin100Km = filter.usersWithin100Km().size();
+        int expectedNumOfUsersWithFilter = 13;
+        String errorMessage = String.format("Number of users not equal to %s", expectedNumOfUsersWithFilter);
+
+        Assert.assertEquals(errorMessage ,expectedNumOfUsersWithFilter, numOfUsersWithin100Km);
     }
 
     @Test
     public void returnFilteredJsonInOrder() throws ParseException, IOException, JSONException {
         JSONArray filteredUsers = filter.usersWithin100KmInAscendingOrder();
 
-        Assert.assertEquals("4", filteredUsers.getJSONObject(0).getString(user_id));
-        Assert.assertEquals("39", filteredUsers.getJSONObject(12).getString(user_id));
+        String expectedIdOfFirstUser = "4";
+        String expectedIdOfLastUser = "39";
+
+        String ifOfFirstUser = filteredUsers.getJSONObject(0).getString(user_id);
+        String idOfLastUser = filteredUsers.getJSONObject(12).getString(user_id);
+
+        String errorMessageForFirstUser = String.format("The id of the first user when filtering for " +
+                "100 km in ascending order should be %s", expectedIdOfFirstUser);
+        String errorMessageForLastUser = String.format("The id of the last user when filtering for " +
+                "100 km in ascending order should be %s", expectedIdOfLastUser);
+
+        Assert.assertEquals(errorMessageForFirstUser, expectedIdOfFirstUser, ifOfFirstUser);
+        Assert.assertEquals(errorMessageForLastUser, expectedIdOfLastUser, idOfLastUser);
     }
 }

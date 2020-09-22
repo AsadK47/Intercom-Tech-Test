@@ -15,11 +15,14 @@ public class JsonFileReaderTests {
     @Test
     public void checkCustomersJsonExists() {
         File customers = new File("customers.json");
-        Assert.assertTrue(String.format("File %s not found", customers), customers.exists());
+        String errorMessage = String.format("File %s not found", customers);
+        Assert.assertTrue(errorMessage, customers.exists());
     }
 
     @Test
     public void verifyUserAtIndexZero() throws IOException, ParseException {
-        Assert.assertEquals(exampleUser.toJSONString(), JsonFileReader.returnValueAtIndexZero().toJSONString());
+        String firstUser = JsonFileReader.returnValueAtIndexZero().toJSONString();
+        String errorMessage = String.format("Values don't match! Expected %s", exampleUser.toJSONString());
+        Assert.assertEquals(errorMessage, exampleUser.toJSONString(), firstUser);
     }
 }
