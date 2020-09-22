@@ -26,3 +26,17 @@ which will enable intellij to open the files as a project and enable the correct
 There are 2 ways to be able to run the test:
 1. Run ./gradlew test in the terminal
 2. (Recommended) Open the APITests in an IDE such as Intellij and click the run button
+
+## Output file
+
+The output file is in the root directory and is in the form of a json instead of a txt as it is better suited to display the information.
+This output of this file can also be retrieved by running the main method in the Filter class and checking the output which is displayed as a json array
+where the users, and their ids within 100 km are sorted in ascending order.
+
+## Proudest achievement to date
+
+That would have to be completing Makers Academy and solidifying my transition into software development.
+I am happy that I actually did something about my own future and refused to let myself hate 5 out of 7 days in my life.
+It was certainly a turning point for me, and I want to use this opportunity now to work as hard as possible towards my dream of 
+becoming a successful developer and creating applications along the way.
+

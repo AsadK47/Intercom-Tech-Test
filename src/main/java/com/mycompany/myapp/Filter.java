@@ -12,6 +12,11 @@ import java.util.List;
 import static com.mycompany.variableconfig.VariableConfig.*;
 
 public class Filter {
+    public static void main(String[] args) throws ParseException, IOException, JSONException {
+        Filter filter = new Filter();
+        System.out.println(filter.usersWithin100KmInAscendingOrder());
+    }
+
     public JSONArray usersWithin100Km() throws IOException, ParseException, JSONException {
         JSONArray userArray = JsonFileReader.readJsonAndReturnArray();
         JSONArray filteredArray = new JSONArray();
