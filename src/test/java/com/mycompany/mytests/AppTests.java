@@ -1,6 +1,7 @@
 package com.mycompany.mytests;
 
 import com.mycompany.myapp.App;
+import com.mycompany.myapp.JsonFileReader;
 import org.json.JSONException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -16,7 +17,7 @@ public class AppTests {
     public void verifyUserAtIndexZero() throws IOException, ParseException {
         JSONObject exampleUser = createExampleUser();
 
-        Assert.assertEquals(exampleUser.toJSONString(), app.returnValueAtIndexZero().toJSONString());
+        Assert.assertEquals(exampleUser.toJSONString(), JsonFileReader.returnValueAtIndexZero().toJSONString());
     }
 
     @Test
@@ -25,7 +26,7 @@ public class AppTests {
         String exampleUserLongitude = "-6.043701";
         String expectedDistanceInKm = "45.0";
 
-        Assert.assertEquals(expectedDistanceInKm, app.distanceBetweenOfficeAndUser(exampleUserLatitude, exampleUserLongitude));
+        Assert.assertEquals(expectedDistanceInKm, app.calculateDistanceBetweenOfficeAndUser(exampleUserLatitude, exampleUserLongitude));
     }
 
     @Test
