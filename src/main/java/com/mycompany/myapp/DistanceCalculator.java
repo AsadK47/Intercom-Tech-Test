@@ -13,14 +13,14 @@ public class DistanceCalculator {
 
         double centralSubtendedAngle = acos(
                 (sin(dublinOfficeLatitude) * sin(latOfUserAsDouble))
-                        + (cos(dublinOfficeLatitude) * cos(latOfUserAsDouble) * cos(deltaOfLongs)));
+                + (cos(dublinOfficeLatitude) * cos(latOfUserAsDouble) * cos(deltaOfLongs)));
 
         double distanceInKm = round(radiusOfEarthInKm * toRadians(centralSubtendedAngle));
 
         return String.valueOf(distanceInKm);
     }
 
-    private static double convertToDouble(String value) {
+    protected static double convertToDouble(String value) {
         return Double.parseDouble(value);
     }
 }

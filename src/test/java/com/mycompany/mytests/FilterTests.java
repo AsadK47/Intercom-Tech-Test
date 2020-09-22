@@ -1,6 +1,7 @@
 package com.mycompany.mytests;
 
-import com.mycompany.myapp.App;
+import com.mycompany.myapp.Filter;
+import com.mycompany.myapp.DistanceCalculator;
 import com.mycompany.myapp.JsonFileReader;
 import org.json.JSONException;
 import org.json.simple.JSONObject;
@@ -10,8 +11,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-public class AppTests {
-    App app = new App();
+public class FilterTests {
+    Filter filter = new Filter();
 
     @Test
     public void verifyUserAtIndexZero() throws IOException, ParseException {
@@ -26,12 +27,12 @@ public class AppTests {
         String exampleUserLongitude = "-6.043701";
         String expectedDistanceInKm = "45.0";
 
-        Assert.assertEquals(expectedDistanceInKm, app.calculateDistanceBetweenOfficeAndUser(exampleUserLatitude, exampleUserLongitude));
+        Assert.assertEquals(expectedDistanceInKm, DistanceCalculator.calculateDistance(exampleUserLatitude, exampleUserLongitude));
     }
 
     @Test
     public void readJsonAndFilterUsersWithin100Km() throws IOException, ParseException, JSONException {
-        Assert.assertEquals(13, app.readJsonAndFilterUsersWithin100Km().size());
+        Assert.assertEquals(13, filter.readJsonAndFilterUsersWithin100Km().size());
     }
 
     @Test
