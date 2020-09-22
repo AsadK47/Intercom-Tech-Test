@@ -14,10 +14,10 @@ import static com.mycompany.variableconfig.VariableConfig.*;
 public class Filter {
     public static void main(String[] args) throws ParseException, JSONException, IOException {
         Filter filter = new Filter();
-        System.out.println(filter.returnFilteredJsonInOrder());
+        System.out.println(filter.usersWithin100KmInAscendingOrder());
     }
 
-    public JSONArray readJsonAndFilterUsersWithin100Km() throws IOException, ParseException, JSONException {
+    public JSONArray usersWithin100Km() throws IOException, ParseException, JSONException {
         JSONArray userArray = JsonFileReader.readJsonAndReturnArray();
         JSONArray filteredArray = new JSONArray();
 
@@ -41,8 +41,8 @@ public class Filter {
         return filteredArray;
     }
 
-    public org.json.JSONArray returnFilteredJsonInOrder() throws ParseException, JSONException, IOException {
-        JSONArray unsortedArray = readJsonAndFilterUsersWithin100Km();
+    public org.json.JSONArray usersWithin100KmInAscendingOrder() throws ParseException, JSONException, IOException {
+        JSONArray unsortedArray = usersWithin100Km();
         org.json.JSONArray sortedJsonArray = new org.json.JSONArray();
 
         List<JSONObject> jsonValues = new ArrayList<>();

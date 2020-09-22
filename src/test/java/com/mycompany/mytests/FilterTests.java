@@ -11,28 +11,29 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+import static com.mycompany.variableconfig.VariableConfig.*;
+
 public class FilterTests {
     Filter filter = new Filter();
+    JSONObject exampleUser = createExampleUser();
 
     @Test
     public void verifyUserAtIndexZero() throws IOException, ParseException {
-        JSONObject exampleUser = createExampleUser();
-
         Assert.assertEquals(exampleUser.toJSONString(), JsonFileReader.returnValueAtIndexZero().toJSONString());
     }
 
     @Test
     public void calculatesDistanceCorrectly() {
-        String exampleUserLatitude = "52.986375";
-        String exampleUserLongitude = "-6.043701";
         String expectedDistanceInKm = "45.0";
 
-        Assert.assertEquals(expectedDistanceInKm, DistanceCalculator.calculateDistance(exampleUserLatitude, exampleUserLongitude));
+        Assert.assertEquals(
+                expectedDistanceInKm, DistanceCalculator.calculateDistance(
+                        exampleUser.get(latitude).toString(), exampleUser.get(longitude).toString()));
     }
 
     @Test
     public void readJsonAndFilterUsersWithin100Km() throws IOException, ParseException, JSONException {
-        Assert.assertEquals(13, filter.readJsonAndFilterUsersWithin100Km().size());
+        Assert.assertEquals(13, filter.usersWithin100Km().size());
     }
 
     @Test
