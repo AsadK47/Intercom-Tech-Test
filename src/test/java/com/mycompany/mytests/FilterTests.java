@@ -1,8 +1,9 @@
 package com.mycompany.mytests;
 
 import com.mycompany.myapp.Filter;
-import com.mycompany.myapp.DistanceCalculator;
+import com.mycompany.myapp.CalculateDistance;
 import com.mycompany.myapp.JsonFileReader;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -27,7 +28,7 @@ public class FilterTests {
         String expectedDistanceInKm = "45.0";
 
         Assert.assertEquals(
-                expectedDistanceInKm, DistanceCalculator.calculateDistance(
+                expectedDistanceInKm, CalculateDistance.usingGivenFormula(
                         exampleUser.get(latitude).toString(), exampleUser.get(longitude).toString()));
     }
 
@@ -37,8 +38,11 @@ public class FilterTests {
     }
 
     @Test
-    public void returnFilteredJsonInOrder() {
+    public void returnFilteredJsonInOrder() throws ParseException, IOException, JSONException {
+        JSONArray filteredUsers = filter.usersWithin100KmInAscendingOrder();
 
+        Assert.assertEquals("4", filteredUsers.getJSONObject(0).getString(user_id));
+        Assert.assertEquals("39", filteredUsers.getJSONObject(12).getString(user_id));
     }
 
     @SuppressWarnings("unchecked")

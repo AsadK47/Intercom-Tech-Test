@@ -12,11 +12,6 @@ import java.util.List;
 import static com.mycompany.variableconfig.VariableConfig.*;
 
 public class Filter {
-    public static void main(String[] args) throws ParseException, JSONException, IOException {
-        Filter filter = new Filter();
-        System.out.println(filter.usersWithin100KmInAscendingOrder());
-    }
-
     public JSONArray usersWithin100Km() throws IOException, ParseException, JSONException {
         JSONArray userArray = JsonFileReader.readJsonAndReturnArray();
         JSONArray filteredArray = new JSONArray();
@@ -27,8 +22,8 @@ public class Filter {
             String userLat = user.getString(latitude);
             String userLong = user.getString(longitude);
 
-            double distance = DistanceCalculator.convertToDouble(
-                    DistanceCalculator.calculateDistance(userLat, userLong));
+            double distance = CalculateDistance.convertToDouble(
+                    CalculateDistance.usingGivenFormula(userLat, userLong));
 
             if (distance <= 100) {
                 JSONObject tempObject = new JSONObject();

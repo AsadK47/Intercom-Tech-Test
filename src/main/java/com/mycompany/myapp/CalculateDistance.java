@@ -4,8 +4,8 @@ import static com.mycompany.variableconfig.VariableConfig.*;
 import static java.lang.Math.*;
 import static java.lang.Math.toRadians;
 
-public class DistanceCalculator {
-    public static String calculateDistance(String latitudeOfUser, String longitudeOfUser) {
+public class CalculateDistance {
+    public static String usingGivenFormula(String latitudeOfUser, String longitudeOfUser) {
         double latOfUserAsDouble = convertToDouble(latitudeOfUser);
         double longOfUserAsDouble = convertToDouble(longitudeOfUser);
 
