@@ -14,10 +14,11 @@ public class CalculateDistanceTests {
     @Test
     public void calculatesDistanceCorrectly() {
         String expectedDistanceInKm = "45.0";
+        String exampleLat = exampleUser.get(latitude).toString();
+        String exampleLong = exampleUser.get(longitude).toString();
 
-        Assert.assertEquals(
-                expectedDistanceInKm, CalculateDistance.usingGivenFormula(
-                        exampleUser.get(latitude).toString(), exampleUser.get(longitude).toString()));
+        Assert.assertEquals(expectedDistanceInKm,
+                CalculateDistance.usingGivenFormula(exampleLat, exampleLong));
     }
 
     @SuppressWarnings("unchecked")
