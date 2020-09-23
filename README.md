@@ -1,5 +1,9 @@
 # Intercom-Tech-Test
 
+## Disclaimer
+
+### For all the following operations please make sure you have JDK 8 and gradle version 5 or above installed
+
 ## Index
 
 1. [Instructions](#instructions-for-the-tech-test)
@@ -50,7 +54,8 @@ as highlighted in the screenshot below.
 
 The output highlighted above is also shown more clearly by navigating to the [output](#output-file) file.
 
-Alternatively you can always play around and write your own code to see the output. For example `filter.usersWithin100Km` will return an unordered list of users within 100 km.
+Alternatively you can always play around and write your own code to see the output. For example running `System.out.println(filter.usersWithin100Km);` in the main method 
+will return an unordered list of users within 100 km.
 
 Additionally, you can do the following in the main method `System.out.println(CalculateDistance.usingGivenFormula("userLat", "userLong"));` where userLat and userLong can be replaced with
 any latitude and longitude and so you can check the distance between the dublin office and anywhere in the world. 
@@ -58,14 +63,13 @@ any latitude and longitude and so you can check the distance between the dublin 
 ## How to improve the code
 I have tried to write the code so that it is scalable and thus an improvement could be is to have more parameters in the `CalculateDistance.usingGivenFormula("userLat", "userLong")` so it becomes `CalculateDistance.usingGivenFormula("myLocationLat", "myLocationLong", "userLat", "userLong")` which could replace the presets for the dublin office and then the program would be able to calculate the distance between any 2 locations.
 
-Furthermore, if we wanted to increase the distance to see if people are for example within the 300 km radius then changes to the code are easy enough and if this was
-used more frequently then we could parameterise the distance and thus would be more flexible. The reason I haven't done it here is because it is unnecessary since the 
+Furthermore, if we wanted to increase the distance to see if people are for example within the 300 km radius then changes to the code are easy enough. If we wanted to change the kilometre distance 
+more frequently then we could parameterise the function to take in a distance, thus making it more flexible. The reason it hasn't been done here is because it is unnecessary since the 
 function only ever needs to calculate for 100 km. 
 
 Moreover, a different (more accurate) formula could be used to calculate Great-circle distance such as the haversine formula or vincenty formula.  
 
 ## How to run the unit tests
-### For all of the following operations please make sure you have JDK 8 installed and gradle version 5 or above
 
 There are 2 ways to be able to run the test:
 1. Run ./gradlew clean test in the terminal - alternatively running ./gradlew clean test --info will give a more verbose answer and this especially use if the tests fail
@@ -75,14 +79,15 @@ There are 3 different test files and clicking run in either of them will run the
 
 ![](screenshots/screenshot3.png?raw=true)
 
-If the tests do fail the error message from using the info command is quite helpful as depicted in the screenshot below (intentionally failed to show output)
+If the tests do fail the error message from using the info command is quite helpful as depicted in the screenshot below 
 
+*Screenshot of running it in the terminal (intentionally failed to show output)*
 ![](screenshots/screenshot5.png?raw=true)
 
 ## Output file
 
 The output file is in the root directory and is in the form of a json instead of a txt as it is better suited to display the information.
-This output of this file can also be retrieved by running the main method in the Filter class and checking the output which is displayed as a json array
+This raw output of this file can also be retrieved by running the main method in the Filter class and checking the console to view the json array
 where the users, and their ids within 100 km are sorted in ascending order.
 
 ![](screenshots/screenshot4.png?raw=true)
