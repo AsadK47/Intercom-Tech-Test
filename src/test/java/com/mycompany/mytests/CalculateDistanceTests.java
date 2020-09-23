@@ -20,7 +20,7 @@ public class CalculateDistanceTests {
         String exampleLong = exampleUser.get(longitude).toString();
 
         Assert.assertEquals(errorMessage, expectedDistanceInKm,
-                CalculateDistance.usingGivenFormula(exampleLat, exampleLong));
+                CalculateDistance.usingGreatCircleFormula(exampleLat, exampleLong));
     }
 
     @SuppressWarnings("unchecked")

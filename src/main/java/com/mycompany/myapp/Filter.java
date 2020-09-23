@@ -28,7 +28,7 @@ public class Filter {
             String userLong = user.getString(longitude);
 
             double distance = CalculateDistance.convertToDouble(
-                    CalculateDistance.usingGivenFormula(userLat, userLong));
+                    CalculateDistance.usingGreatCircleFormula(userLat, userLong));
 
             if (distance <= 100) {
                 JSONObject tempObject = new JSONObject();
@@ -47,8 +47,8 @@ public class Filter {
 
         List<JSONObject> jsonValues = new ArrayList<>();
 
-        for (Object o : unsortedArray) {
-            jsonValues.add((JSONObject) o);
+        for (int i = 0; i < unsortedArray.size(); i++) {
+            jsonValues.add((JSONObject) unsortedArray.get(i));
         }
 
         jsonValues.sort((a, b) -> {
@@ -65,7 +65,7 @@ public class Filter {
             return Integer.parseInt(valA) - Integer.parseInt(valB);
         });
 
-        for (int i = 0; i < unsortedArray.size(); i++) {
+        for (int i = 0; i < jsonValues.size(); i++) {
             sortedJsonArray.put(jsonValues.get(i));
         }
 

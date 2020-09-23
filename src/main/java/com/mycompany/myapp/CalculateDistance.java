@@ -5,7 +5,7 @@ import static java.lang.Math.*;
 import static java.lang.Math.toRadians;
 
 public class CalculateDistance {
-    public static String usingGivenFormula(String latitudeOfUser, String longitudeOfUser) {
+    public static String usingGreatCircleFormula(String latitudeOfUser, String longitudeOfUser) {
         double latOfUserAsDouble = convertToDouble(latitudeOfUser);
         double longOfUserAsDouble = convertToDouble(longitudeOfUser);
 
