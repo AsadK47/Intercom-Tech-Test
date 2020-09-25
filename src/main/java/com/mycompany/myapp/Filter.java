@@ -52,17 +52,17 @@ public class Filter {
         }
 
         jsonValues.sort((a, b) -> {
-            String valA = "";
-            String valB = "";
+            int valA = 0;
+            int valB = 0;
 
             try {
-                valA = a.getString(user_id);
-                valB = b.getString(user_id);
+                valA = a.getInt(user_id);
+                valB = b.getInt(user_id);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
-            return Integer.parseInt(valA) - Integer.parseInt(valB);
+            return valA - valB;
         });
 
         for (int i = 0; i < jsonValues.size(); i++) {
